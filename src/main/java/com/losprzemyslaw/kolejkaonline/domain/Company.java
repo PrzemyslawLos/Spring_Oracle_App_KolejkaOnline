@@ -1,14 +1,14 @@
 package com.losprzemyslaw.kolejkaonline.domain;
 
 public class Company {
-    int id;
-    String login;
-    String password;
-    String description;
-    String companyName;
-    String adress;
-    String city;
-    String postcode;
+    private int id;
+    private String login;
+    private String password;
+    private String description;
+    private String companyName;
+    private String adress;
+    private String city;
+    private String postcode;
 
     public Company(int id, String login, String password, String description, String companyName, String adress, String city, String postcode) {
         this.id = id;
