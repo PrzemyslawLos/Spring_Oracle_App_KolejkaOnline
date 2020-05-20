@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add new client</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <p th:text = "${client.id}" ></p>
+    <p th:text = "${client.login}" ></p>
+    <p th:text = "${client.password}" ></p>
+    <p th:text = "${client.balance}" ></p>
+    <p th:text = "${client.name}" ></p>
+    <p th:text = "${client.surname}" ></p>
+    <p th:text = "${client.email}" ></p>
+
+</tbody>
+</table>
+    <div class = "row">
+        <a href="/clients"> Powrot do listy klientow </a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Client list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <table class ="table">
+        <thead>
+        <tr>
+            <td>ID klienta</td>
+            <td>Login klienta</td> <!-- Nazwa 1 kolumny -->
+            <td>Imie klienta</td>
+            <td>Nazwisko klienta</td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        </thead>
+        <tbody th:each=" client : ${clients}"> <!-- ${ atrybut z kontrolera} -->
+        <tr>
+            <td th:text="${client.id}"></td>
+            <td th:text="${client.login}"></td>
+            <td th:text="${client.name}"></td>
+            <td th:text="${client.surname}"></td>
+            <td><a th:href = "${'/client?id=' + client.id}" > Podglad szczegolowy</a> </td> <!-- link/ id przez parametr -->
+            <td><a th:href = "${'/client/delete/' + client.id}"> Usun </a></td> <!-- link/ id przez sciezke -->
+        </tr>
+    </tbody>
+</table>
+    <div class = "row">
+        <a href="/newclient"> Dodaj klienta </a>
+    </div>
+</div>
+</body>
+</html>
