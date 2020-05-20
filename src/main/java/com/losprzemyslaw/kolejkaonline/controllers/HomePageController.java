@@ -17,14 +17,14 @@ public class HomePageController {
         return "home";
     }
 
-    @RequestMapping("/foryourbusiness")
+    @RequestMapping("/for-your-business")
     public String loadComp() {
-        return "foryourbusiness";
+        return "for-your-business";
     }
 
-    @RequestMapping("/foryou")
+    @RequestMapping("/for-you")
     public String loadClient() {
-        return "foryou";
+        return "for-you";
     }
 
     @RequestMapping("/login")
