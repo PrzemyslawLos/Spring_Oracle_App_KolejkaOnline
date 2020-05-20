@@ -7,7 +7,7 @@ public class Client {
     private int id;
 
     @NotNull
-    @Size(min = 5,max = 20, message = "Login musi mieć od 5 do 20 znaków")
+    @Size(min = 5, max = 20, message = "Login musi mieć od 5 do 20 znaków")
     private String login;
 
     private String password;

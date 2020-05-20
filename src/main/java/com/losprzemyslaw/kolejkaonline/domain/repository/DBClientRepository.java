@@ -1,9 +1,10 @@
 package com.losprzemyslaw.kolejkaonline.domain.repository;
 
 import com.losprzemyslaw.kolejkaonline.domain.Client;
-import java.util.Collection;
+
 import java.sql.*;
 import java.util.*;
+
 import oracle.jdbc.driver.OracleDriver;
 
 public class DBClientRepository implements ClientRepository {
@@ -26,11 +27,11 @@ public class DBClientRepository implements ClientRepository {
     }
 
     @Override
-    public void addClient(Client client) throws SQLException,ClassNotFoundException {
-        con = DriverManager.getConnection(url,user,pass);
+    public void addClient(Client client) throws SQLException, ClassNotFoundException {
+        con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
         String sql = ("insert into CLIENT(login, password, balance, email, name, surname)" + "values (" + "'" + client.getLogin() + "',"
-                + "'" + client.getPassword() + "'," +  + client.getBalance() + "," + "'" + client.getEmail() + "'," + "'" +
+                + "'" + client.getPassword() + "'," + +client.getBalance() + "," + "'" + client.getEmail() + "'," + "'" +
                 client.getName() + "'," + "'" + client.getSurname() + "')");
         System.out.println(sql);
         rs = st.executeQuery(sql);
@@ -39,37 +40,37 @@ public class DBClientRepository implements ClientRepository {
 
 
     @Override
-    public void removeClient(String login) throws SQLException{
-        con = DriverManager.getConnection(url,user,pass);
+    public void removeClient(String login) throws SQLException {
+        con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
         String sql = ("delete from CLIENT where login = '" + login + "'");
         System.out.println(sql);
         rs = st.executeQuery(sql);
         rs = st.executeQuery("commit");
     }
+
     @Override
-    public List<Client> getAllClients() throws  SQLException{
+    public List<Client> getAllClients() throws SQLException {
         con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
-        String sql = ("Select CLIENTID,LOGIN,PASSWORD,EMAIL,NAME,SURNAME,BALANCE FROM CLIENT order by CLIENTID ASC") ;
+        String sql = ("Select CLIENTID,LOGIN,PASSWORD,EMAIL,NAME,SURNAME,BALANCE FROM CLIENT order by CLIENTID ASC");
         rs = st.executeQuery(sql);
-        List <Client> clients = new ArrayList<>();
+        List<Client> clients = new ArrayList<>();
         int id;
-        String login,password,email,name,surname;
+        String login, password, email, name, surname;
         double balance;
 
-        while(rs.next())
-        {
+        while (rs.next()) {
             id = rs.getInt("clientid");
             login = rs.getString("login");
             password = rs.getString("password");
             email = rs.getString("email");
             name = rs.getString("name");
-            surname= rs.getString("surname");
+            surname = rs.getString("surname");
             balance = rs.getDouble("Balance");
 
 
-            clients.add( new Client(id, login, password, balance, email, name, surname));
+            clients.add(new Client(id, login, password, balance, email, name, surname));
         }
 
         return clients;
@@ -77,7 +78,7 @@ public class DBClientRepository implements ClientRepository {
     }
 
     @Override
-    public Client getClient(String login){
+    public Client getClient(String login) {
        /* Client client;
         con = DriverManager.getConnection(url,user,pass);
         st = con.createStatement();
@@ -85,14 +86,14 @@ public class DBClientRepository implements ClientRepository {
         System.out.println(sql);
         rs = st.executeQuery(sql);
         rs = st.executeQuery("commit"); */
-       return  null;
+        return null;
 
     }
 
     @Override
     public String toString() {
         return "ClientRepository{" +
-                "clientMap="  +
+                "clientMap=" +
                 '}';
     }
 
@@ -100,19 +101,18 @@ public class DBClientRepository implements ClientRepository {
     public Client getClientById(int id) throws SQLException {
         con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
-        String sql = ("Select CLIENTID,LOGIN,PASSWORD,EMAIL,NAME,SURNAME,BALANCE FROM CLIENT where clientid =" + id) ;
+        String sql = ("Select CLIENTID,LOGIN,PASSWORD,EMAIL,NAME,SURNAME,BALANCE FROM CLIENT where clientid =" + id);
         rs = st.executeQuery(sql);
         Client client;
-        while(rs.next())
-        {
+        while (rs.next()) {
             String login = rs.getString("login");
             String password = rs.getString("password");
             String email = rs.getString("email");
             String name = rs.getString("name");
-            String surname= rs.getString("surname");
+            String surname = rs.getString("surname");
             double balance = rs.getDouble("Balance");
 
-            client = new Client(id,login,password,balance ,email,name,surname);
+            client = new Client(id, login, password, balance, email, name, surname);
             return client;
         }
         return null;
@@ -120,7 +120,7 @@ public class DBClientRepository implements ClientRepository {
 
     @Override
     public void deleteClient(int id) throws SQLException {
-        con = DriverManager.getConnection(url,user,pass);
+        con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
         String sql = ("delete from CLIENT where clientid  =" + id);
         System.out.println(sql);

@@ -10,14 +10,14 @@ public class MainConfig {
 
     @Bean(name = "inMemoryClientRepository")
     @Profile("dev")
-    public ClientRepository createInMemoryClientRepository(){
+    public ClientRepository createInMemoryClientRepository() {
         ClientRepository repo = new InMemoryClientRepository();
         return repo;
     }
 
     @Bean(name = "inMemoryQueueRepository")
     @Profile("dev")
-    public QueueRepository createInMemoryQueueRepository(){
+    public QueueRepository createInMemoryQueueRepository() {
         QueueRepository repo = new InMemoryQueueRepository();
         return repo;
     }
@@ -25,21 +25,21 @@ public class MainConfig {
 
     @Bean(name = "dbClientRepository")
     @Profile("prod")
-    public ClientRepository createDBClientRepository(){
+    public ClientRepository createDBClientRepository() {
         ClientRepository repo = new DBClientRepository();
         return repo;
     }
 
     @Bean(name = "dbQueueRepository")
     @Profile("prod")
-    public QueueRepository createDBQueueRepository(){
+    public QueueRepository createDBQueueRepository() {
         QueueRepository repo = new DBQueueRepository();
         return repo;
     }
 
     @Bean(name = "dbCompanyRepository")
     @Profile("prod")
-    public CompanyRepository createDBCompanyRepository(){
+    public CompanyRepository createDBCompanyRepository() {
         CompanyRepository repo = new DBCompanyRepository();
         return repo;
     }

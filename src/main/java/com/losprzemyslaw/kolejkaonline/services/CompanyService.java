@@ -15,7 +15,7 @@ public class CompanyService {
     @Autowired
     CompanyRepository companyRepository;
 
-    public void addCompany(Company company) throws SQLException,ClassNotFoundException {
+    public void addCompany(Company company) throws SQLException, ClassNotFoundException {
         companyRepository.addCompany(company);
     }
 

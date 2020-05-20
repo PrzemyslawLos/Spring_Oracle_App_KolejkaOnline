@@ -7,22 +7,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomePageController {
 
-    @RequestMapping(value ="/", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String redirect() {
         return "redirect:/home";
     }
 
     @RequestMapping("/home")
-    public String load(){
+    public String load() {
         return "home";
     }
 
     @RequestMapping("/foryourbusiness")
-    public String loadComp(){return "foryourbusiness" ;}
+    public String loadComp() {
+        return "foryourbusiness";
+    }
 
     @RequestMapping("/foryou")
-    public String loadClient(){return "foryou";}
+    public String loadClient() {
+        return "foryou";
+    }
 
     @RequestMapping("/login")
-    public String login(){return "loginform";}
+    public String login() {
+        return "loginform";
+    }
 }

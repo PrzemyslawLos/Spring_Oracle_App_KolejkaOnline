@@ -3,11 +3,11 @@ package com.losprzemyslaw.kolejkaonline.domain;
 public class Queue {
     int id;
     String companyName;
-    int maxSize ;
+    int maxSize;
     int numberOfPlaces;
     int currentNumber;
 
-    public Queue(int id, String companyName,int maxSize, int numberOfPlaces) {
+    public Queue(int id, String companyName, int maxSize, int numberOfPlaces) {
         this.id = id;
         this.maxSize = maxSize;
         this.numberOfPlaces = numberOfPlaces;

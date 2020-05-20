@@ -1,8 +1,6 @@
 package com.losprzemyslaw.kolejkaonline.controllers;
 
-import com.losprzemyslaw.kolejkaonline.domain.Client;
 import com.losprzemyslaw.kolejkaonline.domain.Company;
-import com.losprzemyslaw.kolejkaonline.domain.repository.CompanyRepository;
 import com.losprzemyslaw.kolejkaonline.services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +29,8 @@ public class CompanyController {
         model.addAttribute("company", new Company());
         return "companyform";
     }
-    @RequestMapping(value ="/companies", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/companies", method = RequestMethod.POST)
     public String saveCompany(Company company) throws SQLException, ClassNotFoundException {
         companyService.addCompany(company);
         return "redirect:/companies";

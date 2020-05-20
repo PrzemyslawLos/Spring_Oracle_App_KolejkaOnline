@@ -10,8 +10,8 @@ public class Company {
     String city;
     String postcode;
 
-    public Company(int id,String login, String password, String description, String companyName, String adress,String city, String postcode) {
-        this.id= id;
+    public Company(int id, String login, String password, String description, String companyName, String adress, String city, String postcode) {
+        this.id = id;
         this.login = login;
         this.password = password;
         this.description = description;

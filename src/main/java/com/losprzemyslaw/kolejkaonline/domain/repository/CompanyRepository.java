@@ -4,7 +4,6 @@ import com.losprzemyslaw.kolejkaonline.domain.Company;
 import com.losprzemyslaw.kolejkaonline.domain.Queue;
 
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.List;
 
 public interface CompanyRepository {

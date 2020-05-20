@@ -25,11 +25,11 @@ public class DBCompanyRepository implements CompanyRepository {
     }
 
     @Override
-    public void addCompany(Company company) throws SQLException{
-        con = DriverManager.getConnection(url,user,pass);
+    public void addCompany(Company company) throws SQLException {
+        con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
         String sql = ("insert into COMPANY(login, password, description, companyname, adress, city, postcode)" + "values (" + "'" + company.getLogin() + "',"
-                + "'" + company.getPassword() + "'," + "'" + company.getDescription()  + "'," + "'" + company.getCompanyName() + "'," + "'" + company.getAdress() + "'," + "'" + company.getCity()  + "'," + "'" + company.getPostcode() + "')") ;
+                + "'" + company.getPassword() + "'," + "'" + company.getDescription() + "'," + "'" + company.getCompanyName() + "'," + "'" + company.getAdress() + "'," + "'" + company.getCity() + "'," + "'" + company.getPostcode() + "')");
         System.out.println(sql);
         rs = st.executeQuery(sql);
         rs = st.executeQuery("commit");
@@ -37,27 +37,26 @@ public class DBCompanyRepository implements CompanyRepository {
     }
 
     @Override
-    public void removeQueue(String companyName){
+    public void removeQueue(String companyName) {
 
     }
 
     @Override
-    public Queue getQueue(String companyName){
+    public Queue getQueue(String companyName) {
         return null;
     }
 
     @Override
-    public List<Company> getAllCompanies() throws SQLException{
+    public List<Company> getAllCompanies() throws SQLException {
         con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
-        String sql = ("Select COMPANYID,LOGIN,PASSWORD,DESCRIPTION,COMPANYNAME,ADRESS,CITY,POSTCODE FROM COMPANY order by COMPANYID ASC") ;
+        String sql = ("Select COMPANYID,LOGIN,PASSWORD,DESCRIPTION,COMPANYNAME,ADRESS,CITY,POSTCODE FROM COMPANY order by COMPANYID ASC");
         rs = st.executeQuery(sql);
         List<Company> companies = new ArrayList<>();
         int companyId;
         String login, password, description, companyname, adress, city, postcode;
 
-        while(rs.next())
-        {
+        while (rs.next()) {
             companyId = rs.getInt("companyid");
             login = rs.getString("login");
             password = rs.getString("password");
@@ -67,7 +66,7 @@ public class DBCompanyRepository implements CompanyRepository {
             city = rs.getString("city");
             postcode = rs.getString("postcode");
 
-            companies.add(new Company(companyId,login,password, description, companyname, adress, city, postcode));
+            companies.add(new Company(companyId, login, password, description, companyname, adress, city, postcode));
         }
 
         return companies;
@@ -77,7 +76,7 @@ public class DBCompanyRepository implements CompanyRepository {
     @Override
     public String toString() {
         return "QueueRepository{" +
-                "queueMap="  +
+                "queueMap=" +
                 '}';
     }
 }

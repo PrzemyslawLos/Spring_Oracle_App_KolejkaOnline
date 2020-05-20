@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class InMemoryClientRepository implements ClientRepository {
-    Map <String, Client> clientMap= new HashMap<>() ;
+    Map<String, Client> clientMap = new HashMap<>();
 
     @Override
     public void addClient(Client client) {
@@ -16,17 +16,18 @@ public class InMemoryClientRepository implements ClientRepository {
     }
 
     @Override
-    public void removeClient(String name){
+    public void removeClient(String name) {
         clientMap.remove(name);
     }
+
     @Override
-    public List<Client> getAllClients(){
-       // return clientMap.values();
+    public List<Client> getAllClients() {
+        // return clientMap.values();
         return null;
     }
 
     @Override
-    public Client getClient(String name){
+    public Client getClient(String name) {
         return clientMap.get(name);
     }
 
@@ -48,7 +49,7 @@ public class InMemoryClientRepository implements ClientRepository {
     }
 
     @PostConstruct
-    public void build(){
+    public void build() {
 
     }
 }

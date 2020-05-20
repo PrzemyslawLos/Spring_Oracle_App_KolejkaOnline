@@ -16,10 +16,9 @@ public class QueueService {
     @Autowired
     ClientRepository clientRepository;
 
-    public void showQueues(){
+    public void showQueues() {
         System.out.println(queueRepository);
     }
-
 
 
 }
