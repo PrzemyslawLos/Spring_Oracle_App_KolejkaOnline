@@ -11,6 +11,15 @@ public class QueueCompanyDTO {
     public QueueCompanyDTO() {
     }
 
+    public QueueCompanyDTO(String description, String companyName, String adress, String city, String postcode, int numberOfPlaces) {
+        this.description = description;
+        this.companyName = companyName;
+        this.adress = adress;
+        this.city = city;
+        this.postcode = postcode;
+        this.numberOfPlaces = numberOfPlaces;
+    }
+
     public String getDescription() {
         return description;
     }

@@ -5,6 +5,7 @@ import com.losprzemyslaw.kolejkaonline.domain.Queue;
 
 import javax.annotation.PostConstruct;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -46,6 +47,26 @@ public class DBQueueRepository implements QueueRepository {
 
     @Override
     public List<QueueCompanyDTO> getAllQueues(){
+        con = DriverManager.getConnection(url, user, pass);
+        st = con.createStatement();
+        String sql = ("select co.companyname, co.adress, co.city, co.postcode, qu.numberofwplaces, qu.currentnumber\n" +
+                "from company co\n" +
+                "join queue qu on co.companyid = qu.companyid;");
+        rs = st.executeQuery(sql);
+        List<QueueCompanyDTO> allQueues = new ArrayList<>();
+
+        while (rs.next()) {
+            String description = rs.getString("description");
+            String companyName = rs.getString("companyname");
+            String adress = rs.getString("adress");
+            String city = rs.getString("city");
+            String postcode = rs.getString("postcode");
+            int numberOfPlaces = rs.getInt("numberofwplaces");
+
+            allQueues.add(new Queue(description, companyName, adress, city, postcode, numberOfPlaces));
+        }
+
+        return allQueues;
 
     }
 
