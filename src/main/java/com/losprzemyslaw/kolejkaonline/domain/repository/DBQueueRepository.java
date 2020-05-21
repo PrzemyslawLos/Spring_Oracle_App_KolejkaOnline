@@ -25,7 +25,7 @@ public class DBQueueRepository implements QueueRepository {
     }
 
     @Override
-    public void addQueue(Queue queue){
+    public void addQueue(Queue queue) throws SQLException{
         con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
         String sql = ("insert into queue(companyid, maxsize, numberofwplaces, currentnumber)" + "values (" + queue.getCompanyid() + ","
@@ -46,24 +46,24 @@ public class DBQueueRepository implements QueueRepository {
     }
 
     @Override
-    public List<QueueCompanyDTO> getAllQueues(){
+    public List<QueueCompanyDTO> getAllQueues() throws SQLException{
         con = DriverManager.getConnection(url, user, pass);
         st = con.createStatement();
-        String sql = ("select co.companyname, co.adress, co.city, co.postcode, qu.numberofwplaces, qu.currentnumber\n" +
-                "from company co\n" +
-                "join queue qu on co.companyid = qu.companyid;");
+        String sql = ("select co.companyname,co.description, co.adress, co.city, co.postcode, qu.numberofwplaces from company co join queue qu on co.companyid = qu.companyid");
         rs = st.executeQuery(sql);
         List<QueueCompanyDTO> allQueues = new ArrayList<>();
+        System.out.println(sql);
 
         while (rs.next()) {
             String description = rs.getString("description");
+            System.out.println("Opis" + description);
             String companyName = rs.getString("companyname");
             String adress = rs.getString("adress");
             String city = rs.getString("city");
             String postcode = rs.getString("postcode");
             int numberOfPlaces = rs.getInt("numberofwplaces");
 
-            allQueues.add(new Queue(description, companyName, adress, city, postcode, numberOfPlaces));
+            allQueues.add(new QueueCompanyDTO(description, companyName, adress, city, postcode, numberOfPlaces));
         }
 
         return allQueues;

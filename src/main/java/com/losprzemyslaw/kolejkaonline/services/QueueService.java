@@ -9,6 +9,8 @@ import com.losprzemyslaw.kolejkaonline.domain.repository.QueueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,7 +25,8 @@ public class QueueService {
     @Autowired
     CompanyRepository companyRepository;
 
-    public List<QueueCompanyDTO> getAllQueues() {
+    public List<QueueCompanyDTO> getAllQueues() throws SQLException {
+        return new ArrayList<>(queueRepository.getAllQueues());
 
     }
 

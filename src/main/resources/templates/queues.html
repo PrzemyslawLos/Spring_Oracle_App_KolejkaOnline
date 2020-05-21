@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Client list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <table class ="table">
+        <thead>
+        <tr>
+            <td>Nazwa Firmy</td>
+            <td>Opis</td>
+            <td>Adres</td> <!-- Nazwa 1 kolumny -->
+            <td>Miasto</td>
+            <td>Kod pocztowy</td>
+            <td>Liczba miejsc pracy</td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        </thead>
+        <tbody th:each=" queueCompanyDTO : ${queues}"> <!-- ${ atrybut z kontrolera} -->
+        <tr>
+            <td th:text="${queueCompanyDTO.companyName}"></td>
+            <td th:text="${queueCompanyDTO.description}"></td>
+            <td th:text="${queueCompanyDTO.adress}"></td>
+            <td th:text="${queueCompanyDTO.city}"></td>
+            <td th:text="${queueCompanyDTO.postcode}"></td>
+            <td th:text="${queueCompanyDTO.numberOfPlaces}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
