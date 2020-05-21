@@ -1,11 +1,15 @@
 package com.losprzemyslaw.kolejkaonline.services;
 
 import com.losprzemyslaw.kolejkaonline.domain.Client;
+import com.losprzemyslaw.kolejkaonline.domain.DTO.QueueCompanyDTO;
 import com.losprzemyslaw.kolejkaonline.domain.repository.ClientRepository;
+import com.losprzemyslaw.kolejkaonline.domain.repository.CompanyRepository;
 import com.losprzemyslaw.kolejkaonline.domain.repository.InMemoryClientRepository;
 import com.losprzemyslaw.kolejkaonline.domain.repository.QueueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class QueueService {
@@ -16,8 +20,11 @@ public class QueueService {
     @Autowired
     ClientRepository clientRepository;
 
-    public void showQueues() {
-        System.out.println(queueRepository);
+    @Autowired
+    CompanyRepository companyRepository;
+
+    public List<QueueCompanyDTO> getAllQueues() {
+
     }
 
 

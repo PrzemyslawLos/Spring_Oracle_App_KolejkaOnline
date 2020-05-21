@@ -2,22 +2,22 @@ package com.losprzemyslaw.kolejkaonline.domain;
 
 public class Queue {
     private int id;
-    private String companyName;
+    private int companyid;
     private int maxSize;
     private int numberOfPlaces;
     private int currentNumber;
 
-    public Queue(int id, String companyName, int maxSize, int numberOfPlaces) {
+    public Queue(int id, int companyid, int maxSize, int numberOfPlaces) {
         this.id = id;
         this.maxSize = maxSize;
         this.numberOfPlaces = numberOfPlaces;
-        this.companyName = companyName;
+        this.companyid= companyid;
     }
 
     @Override
     public String toString() {
         return "Queue{" +
-                "companyName='" + companyName + '\'' +
+                "companyid='" + companyid + '\'' +
                 ", maxSize=" + maxSize +
                 ", numberOfPlaces=" + numberOfPlaces +
                 ", currentNumber=" + currentNumber +
@@ -32,12 +32,12 @@ public class Queue {
         this.id = id;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public int getCompanyid() {
+        return companyid;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setCompanyid(int companyid) {
+        this.companyid = companyid;
     }
 
     public int getMaxSize() {

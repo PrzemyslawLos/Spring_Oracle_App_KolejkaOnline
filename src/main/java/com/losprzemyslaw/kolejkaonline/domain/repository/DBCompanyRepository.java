@@ -1,12 +1,10 @@
 package com.losprzemyslaw.kolejkaonline.domain.repository;
 
-import com.losprzemyslaw.kolejkaonline.domain.Client;
 import com.losprzemyslaw.kolejkaonline.domain.Company;
 import com.losprzemyslaw.kolejkaonline.domain.Queue;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class DBCompanyRepository implements CompanyRepository {
