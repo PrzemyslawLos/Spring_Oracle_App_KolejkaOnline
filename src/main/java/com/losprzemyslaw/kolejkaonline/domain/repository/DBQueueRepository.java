@@ -63,7 +63,7 @@ public class DBQueueRepository implements QueueRepository {
             String postcode = rs.getString("postcode");
             int numberOfPlaces = rs.getInt("numberofwplaces");
 
-            allQueues.add(new QueueCompanyDTO(description, companyName, adress, city, postcode, numberOfPlaces));
+            allQueues.add(new QueueCompanyDTO(description, companyName, adress, city, postcode, numberOfPlaces, 21));
         }
 
         return allQueues;

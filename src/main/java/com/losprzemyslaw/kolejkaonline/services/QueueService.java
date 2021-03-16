@@ -1,11 +1,9 @@
 package com.losprzemyslaw.kolejkaonline.services;
 
 import com.losprzemyslaw.kolejkaonline.domain.Client;
+import com.losprzemyslaw.kolejkaonline.domain.DTO.Client_QueueDTO;
 import com.losprzemyslaw.kolejkaonline.domain.DTO.QueueCompanyDTO;
-import com.losprzemyslaw.kolejkaonline.domain.repository.ClientRepository;
-import com.losprzemyslaw.kolejkaonline.domain.repository.CompanyRepository;
-import com.losprzemyslaw.kolejkaonline.domain.repository.InMemoryClientRepository;
-import com.losprzemyslaw.kolejkaonline.domain.repository.QueueRepository;
+import com.losprzemyslaw.kolejkaonline.domain.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +23,15 @@ public class QueueService {
     @Autowired
     CompanyRepository companyRepository;
 
+    @Autowired
+    DBClient_QueueDTORepository client_queueDTORepository;
+
     public List<QueueCompanyDTO> getAllQueues() throws SQLException {
         return new ArrayList<>(queueRepository.getAllQueues());
 
+    }
+    public List<Client_QueueDTO> getQueueDetail(int id) throws SQLException {
+        return new ArrayList<>(client_queueDTORepository.getAllClientsInQueueDTO(id));
     }
 
 

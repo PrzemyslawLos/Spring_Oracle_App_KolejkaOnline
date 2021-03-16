@@ -58,4 +58,5 @@ public class ClientController {
         clientService.deleteClient(id);
         return "redirect:/clients";
     }
+
 }

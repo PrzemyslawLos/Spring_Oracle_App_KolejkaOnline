@@ -24,11 +24,12 @@
             <li class="active"><a href="/home">Home</a></li>
             <li><a href="/for-you">Dla kolejkowiczow</a></li>
             <li><a href="/for-your-business">Dla firm</a></li>
+            <li><a href="/companies">Znajdz kolejke</a></li>
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/newcompany"><span class="glyphicon glyphicon-user"></span> Załóż konto</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
+            <li><a href="/newclient"><span class="glyphicon glyphicon-user"></span> Załóż konto</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</a></li>
         </ul>
     </div>
 </nav>
@@ -37,24 +38,28 @@
     <table class ="table">
         <thead>
         <tr>
-            <td>ID firmy</td>
-            <td>Login firmy</td> <!-- Nazwa 1 kolumny -->
-            <td>Opis firmy</td>
-            <td>Nazwa firmy</td>
+            <td>ID klienta</td>
+            <td>Login klienta</td> <!-- Nazwa 1 kolumny -->
+            <td>Imie klienta</td>
+            <td>Numer w kolejce</td>
+            <td></td>
+            <td></td>
 
         </tr>
         </thead>
-        <tbody th:each=" company : ${companies}"> <!-- ${ atrybut z kontrolera} -->
+        <tbody th:each=" Client_QueueDTO : ${queue}"> <!-- ${ atrybut z kontrolera} -->
         <tr>
-            <td th:text="${company.id}"></td>
-            <td th:text="${company.login}"></td>
-            <td th:text="${company.description}"></td>
-            <td th:text="${company.companyName}"></td>
+            <td th:text="${Client_QueueDTO.clientID}"></td>
+            <td th:text="${Client_QueueDTO.login}"></td>
+            <td th:text="${Client_QueueDTO.name}"></td>
+            <td th:text="${Client_QueueDTO.cNumber}"></td>
+
         </tr>
+        </tbody>
+    </table>
+    <div class = "row">
+        <a href="/queues"> Wróć do listy kolejek </a>
+    </div>
 </div>
-
-</form>
-</div>
-
 </body>
 </html>

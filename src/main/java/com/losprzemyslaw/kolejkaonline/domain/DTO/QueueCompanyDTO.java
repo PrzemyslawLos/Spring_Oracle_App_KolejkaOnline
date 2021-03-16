@@ -7,17 +7,27 @@ public class QueueCompanyDTO {
     private String city;
     private String postcode;
     private int numberOfPlaces;
+    private int queueID= 21;
 
     public QueueCompanyDTO() {
     }
 
-    public QueueCompanyDTO(String description, String companyName, String adress, String city, String postcode, int numberOfPlaces) {
+    public QueueCompanyDTO(String description, String companyName, String adress, String city, String postcode, int numberOfPlaces, int queueID) {
         this.description = description;
         this.companyName = companyName;
         this.adress = adress;
         this.city = city;
         this.postcode = postcode;
         this.numberOfPlaces = numberOfPlaces;
+        this.queueID = 21;
+    }
+
+    public int getQueueID() {
+        return queueID;
+    }
+
+    public void setQueueID(int queueID) {
+        this.queueID = queueID;
     }
 
     public String getDescription() {

@@ -1,6 +1,7 @@
 package com.losprzemyslaw.kolejkaonline.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -27,8 +28,8 @@ public class HomePageController {
         return "for-you";
     }
 
-    @RequestMapping("/login")
-    public String login() {
-        return "loginform";
+    @GetMapping("login")
+    public String getLogin() {
+        return "login";
     }
 }

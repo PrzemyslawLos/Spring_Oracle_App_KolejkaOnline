@@ -1,9 +1,11 @@
 package com.losprzemyslaw.kolejkaonline.config;
 
 import com.losprzemyslaw.kolejkaonline.domain.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 
 @Configuration
 public class MainConfig {
@@ -43,5 +45,13 @@ public class MainConfig {
         CompanyRepository repo = new DBCompanyRepository();
         return repo;
     }
+    @Bean(name = "dbClient_QueueDTORepository")
+    @Profile("prod")
+    public DBClient_QueueDTORepository createDBClient_QueueDTORepository() {
+        DBClient_QueueDTORepository repo = new DBClient_QueueDTORepository();
+        return repo;
+    }
+
+
 
 }
